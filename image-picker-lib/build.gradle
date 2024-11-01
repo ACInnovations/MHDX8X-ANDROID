@@ -1,0 +1,62 @@
+/*
+ * @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+ * @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+ * All Rights Reserved.
+ * Proprietary and confidential :  All information contained herein is, and remains
+ * the property of ToXSL Technologies Pvt. Ltd. and its partners.
+ * Unauthorized copying of this file, via any medium is strictly prohibited.
+ */
+
+apply plugin: 'com.android.library'
+
+
+android {
+
+    compileSdkVersion 33
+
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 33
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lint {
+        abortOnError false
+    }
+    namespace 'toxsl.imagebottompicker'
+
+}
+
+
+
+configurations {
+    javadocDeps
+}
+
+repositories {
+    mavenCentral()
+    google()
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    //noinspection GradleCompatible
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    //noinspection GradleCompatible
+    api 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.annotation:annotation:1.5.0'
+    javadocDeps 'androidx.annotation:annotation:1.5.0'
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
+    implementation 'gun0912.ted:tedonactivityresult:1.0.6'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+
+}
+

@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.dx8_exchange.utils.ViewClickHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/deepBlack"
+        android:paddingHorizontal="@dimen/_20sdp"
+        tools:context=".ui.fragment.authentication.VerificationCodeFragment">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolbarCL"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/backArrowIV"
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="@dimen/_26sdp"
+                android:background="@mipmap/ic_back"
+                android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titleTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:fontFamily="@font/coresansg_regular"
+                android:gravity="center"
+                android:text="@string/dx8"
+                android:textColor="@color/pattensBlue"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/backArrowIV"
+                app:layout_constraintTop_toTopOf="@+id/backArrowIV" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/mainSV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbarCL">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/detailsCL"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="@dimen/_20sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/circleOneTV"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginStart="@dimen/_24sdp"
+                        android:background="@drawable/coloredcircle"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/circleOnetxtTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="start"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:text="@string/create_password"
+                        android:textColor="@color/skyBlue"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/circleOneTV"
+                        app:layout_constraintStart_toStartOf="@+id/circleOneTV"
+                        app:layout_constraintTop_toBottomOf="@+id/circleOneTV" />
+
+                    <View
+                        android:id="@+id/firstV"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:background="@color/lightGrey"
+                        app:layout_constraintBottom_toBottomOf="@+id/circleOneTV"
+                        app:layout_constraintEnd_toStartOf="@+id/circleTwoTV"
+                        app:layout_constraintStart_toEndOf="@+id/circleOneTV"
+                        app:layout_constraintTop_toTopOf="@+id/circleOneTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/circleTwoTV"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:background="@drawable/coloredcircle"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/circleOneTV"
+                        app:layout_constraintEnd_toStartOf="@+id/secondV"
+                        app:layout_constraintStart_toEndOf="@+id/firstV"
+                        app:layout_constraintTop_toTopOf="@+id/circleOneTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/circleTwotxtTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/phone_verfication"
+                        android:textColor="@color/skyBlue"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/circleOnetxtTV"
+                        app:layout_constraintEnd_toEndOf="@+id/circleTwoTV"
+                        app:layout_constraintStart_toStartOf="@+id/circleTwoTV"
+                        app:layout_constraintTop_toTopOf="@+id/circleOnetxtTV" />
+
+                    <View
+                        android:id="@+id/secondV"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:background="@color/lightGrey"
+                        app:layout_constraintBottom_toBottomOf="@+id/circleOneTV"
+                        app:layout_constraintEnd_toStartOf="@+id/circleThirdTV"
+                        app:layout_constraintStart_toEndOf="@+id/circleTwoTV"
+                        app:layout_constraintTop_toTopOf="@+id/circleOneTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/circleThirdTV"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginEnd="@dimen/_25sdp"
+                        android:background="@drawable/coloredcircle"
+                        android:gravity="center"
+                        android:text="3"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/circleOneTV"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/secondV"
+                        app:layout_constraintTop_toTopOf="@+id/circleOneTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/circleThirdTtxtV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/confirm"
+                        android:textColor="@color/skyBlue"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/circleOnetxtTV"
+                        app:layout_constraintEnd_toEndOf="@+id/circleThirdTV"
+                        app:layout_constraintStart_toStartOf="@+id/circleThirdTV"
+                        app:layout_constraintTop_toTopOf="@+id/circleOnetxtTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/verificationCodeTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:fontFamily="@font/coresansg_rounded_bold"
+                        android:text="@string/verification_code"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_20sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/circleTwotxtTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/sentCodeTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:gravity="center_horizontal|top"
+                        android:lineSpacingExtra="@dimen/_5sdp"
+                        android:text="@string/we_have_sen"
+                        android:textColor="@color/fogColor"
+                        app:layout_constraintEnd_toEndOf="@id/verificationCodeTV"
+                        app:layout_constraintStart_toStartOf="@id/verificationCodeTV"
+                        app:layout_constraintTop_toBottomOf="@id/verificationCodeTV" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/firstOtpTV"
+                        android:layout_width="44dp"
+                        android:layout_height="58dp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_45sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="center"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:text=""
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_15ssp"
+                        app:layout_constraintEnd_toStartOf="@+id/secondOtpTV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/sentCodeTV" />
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/secondOtpTV"
+                        android:layout_width="44dp"
+                        android:layout_height="58dp"
+                        android:layout_marginHorizontal="@dimen/_5sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="center"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_15ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/firstOtpTV"
+                        app:layout_constraintEnd_toStartOf="@+id/thirdOtpTV"
+                        app:layout_constraintStart_toEndOf="@id/firstOtpTV"
+                        app:layout_constraintTop_toTopOf="@id/firstOtpTV"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/thirdOtpTV"
+                        android:layout_width="44dp"
+                        android:layout_height="58dp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="center"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_15ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/firstOtpTV"
+                        app:layout_constraintEnd_toStartOf="@+id/fourthOtpTV"
+                        app:layout_constraintStart_toEndOf="@id/secondOtpTV"
+                        app:layout_constraintTop_toTopOf="@id/firstOtpTV" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/fourthOtpTV"
+                        android:layout_width="44dp"
+                        android:layout_height="58dp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="center"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_15ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/firstOtpTV"
+                        app:layout_constraintEnd_toStartOf="@id/fifthOtpTV"
+                        app:layout_constraintStart_toEndOf="@id/thirdOtpTV"
+                        app:layout_constraintTop_toTopOf="@id/firstOtpTV" />
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/fifthOtpTV"
+                        android:layout_width="44dp"
+                        android:layout_height="58dp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="center"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_15ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/firstOtpTV"
+                        app:layout_constraintEnd_toEndOf="@id/sixthOtpTV"
+                        app:layout_constraintStart_toEndOf="@id/fourthOtpTV"
+                        app:layout_constraintTop_toTopOf="@id/firstOtpTV" />
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/sixthOtpTV"
+                        android:layout_width="44dp"
+                        android:layout_height="58dp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="center"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_15ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/firstOtpTV"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/fifthOtpTV"
+                        app:layout_constraintTop_toTopOf="@id/firstOtpTV" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/requestAgainTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:text="@string/didn_t_rece"
+                        app:layout_constraintEnd_toEndOf="@id/sixthOtpTV"
+                        app:layout_constraintStart_toStartOf="@id/firstOtpTV"
+                        app:layout_constraintTop_toBottomOf="@id/fourthOtpTV" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/submitTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@drawable/rounded_bg"
+                        android:gravity="center"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/submit"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_15ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/requestAgainTV"
+                        app:layout_constraintVertical_bias="1" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

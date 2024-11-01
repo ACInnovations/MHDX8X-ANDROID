@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.dx8_exchange.utils.ViewClickHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/deepBlack"
+        tools:context=".ui.fragment.authentication.RegistrationCompletedFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageIV"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:padding="@dimen/_10sdp"
+            android:src="@mipmap/eeeeeeeeee"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/youAreTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/coresansg_rounded_bold"
+            android:text="@string/you_re_in_"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_25sdp"
+            app:layout_constraintEnd_toEndOf="@id/imageIV"
+            app:layout_constraintStart_toStartOf="@id/imageIV"
+            app:layout_constraintTop_toBottomOf="@id/imageIV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/timeToTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/coresansg_regular"
+            android:text="@string/time_to_do_"
+            android:textColor="@color/fogColor"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintEnd_toEndOf="@id/youAreTV"
+            app:layout_constraintStart_toStartOf="@id/youAreTV"
+            app:layout_constraintTop_toBottomOf="@id/youAreTV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/doneTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_80sdp"
+            android:gravity="center"
+            android:padding="@dimen/_12sdp"
+            android:background="@drawable/rounded_bg"
+            android:fontFamily="@font/coresansg_medium"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:text="@string/done"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/timeToTV" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

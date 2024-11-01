@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.dx8_exchange.utils.ViewClickHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/deepBlack"
+        tools:context=".ui.fragment.SwapConfirmationFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolbarCL"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingHorizontal="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/backArrowIV"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:background="@mipmap/ic_back"
+                android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titleTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:fontFamily="@font/coresansg_regular"
+                android:gravity="center"
+                android:text="@string/swap"
+                android:textColor="@color/pattensBlue"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintEnd_toStartOf="@+id/cancelTV"
+                app:layout_constraintStart_toEndOf="@+id/backArrowIV"
+                app:layout_constraintTop_toTopOf="@+id/backArrowIV" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titleBottomSwapTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/bulleticon"
+                android:drawablePadding="@dimen/_4sdp"
+                android:fontFamily="@font/coresansg_regular"
+                android:gravity="center"
+                android:text="@string/ethereum_main_network"
+                android:textColor="@color/eastBay"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@+id/titleTV"
+                app:layout_constraintStart_toStartOf="@+id/titleTV"
+                app:layout_constraintTop_toBottomOf="@+id/titleTV" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cancelTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/coresansg_regular"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:textColor="@color/skyBlue"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/backArrowIV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/backArrowIV" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/swapToolbarCL"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/swapBackArrowIV"
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="@dimen/_26sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@mipmap/ic_back"
+                android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/swapTitleTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/coresansg_regular"
+                android:gravity="center"
+                android:text="@string/swap"
+                android:textColor="@color/pattensBlue"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/SwapTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:drawableTop="@mipmap/stepone"
+                android:drawablePadding="@dimen/_2sdp"
+                android:fontFamily="@font/coresansg_regular"
+                android:gravity="center"
+                android:text="@string/step_1_of_3"
+                android:textColor="@color/pattensBlue"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/swapBackArrowIV" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/swapBottomTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/bulleticon"
+                android:drawablePadding="@dimen/_4sdp"
+                android:fontFamily="@font/coresansg_regular"
+                android:gravity="center"
+                android:text="@string/ethereum_main_network"
+                android:textColor="@color/eastBay"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/swapToolbarCL"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="toolbarCL,swapToolbarCL" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/mainSV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrierB">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/detailsCL"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/ethTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:drawableStart="@mipmap/xxxxxxxxxxxxxx"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="center"
+                        android:text="0.03 ETH"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_16ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/downIV"
+                        android:layout_width="@dimen/_22sdp"
+                        android:layout_height="@dimen/_22sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:src="@mipmap/vvvvvvvvvvvv"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ethTV"
+                        app:riv_corner_radius="@dimen/_25sdp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/ethCodeTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:drawableStart="@mipmap/iiiiiiiii"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="center"
+                        android:text="113.689 USDT"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_16ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/downIV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/ethValueTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:drawableEnd="@mipmap/ddddddddddd"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:fontFamily="@font/coresansg_regular"
+                        android:gravity="center"
+                        android:text="1 ETH = 3787 USDT"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ethCodeTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/bestQuoteTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="start"
+                        android:text="@string/using_the_best_quote"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_15ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ethValueTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/networkFeeTxtTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="start"
+                        android:text="@string/estimated_network_fee"
+                        android:textColor="@color/rockBlue"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/bestQuoteTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/networkCodeTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="end"
+                        android:text="0.0011 ETH"
+                        android:textColor="@color/rockBlue"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/networkFeeTxtTV"
+                        app:layout_constraintEnd_toStartOf="@+id/networkFeeTV"
+                        app:layout_constraintStart_toEndOf="@+id/networkFeeTxtTV"
+                        app:layout_constraintTop_toTopOf="@+id/networkFeeTxtTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/networkFeeTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_2sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="end"
+                        android:text="$4.32"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/networkCodeTV"
+                        app:layout_constraintTop_toTopOf="@+id/networkFeeTxtTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/maxNetworkFeeTxtTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="start"
+                        android:text="@string/max_network_fee"
+                        android:textColor="@color/rockBlue"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/networkFeeTxtTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/maxNetworkCodeTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="end"
+                        android:text="0.0014 ETH"
+                        android:textColor="@color/rockBlue"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/maxNetworkFeeTxtTV"
+                        app:layout_constraintEnd_toStartOf="@+id/networkFeeTV"
+                        app:layout_constraintStart_toEndOf="@+id/maxNetworkFeeTxtTV"
+                        app:layout_constraintTop_toTopOf="@+id/maxNetworkFeeTxtTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/maxNetworkFeeTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_2sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="end"
+                        android:text="$5.32"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/maxNetworkCodeTV"
+                        app:layout_constraintTop_toTopOf="@+id/maxNetworkFeeTxtTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/gasFeeTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="start"
+                        android:text="@string/estimate_gas_fee"
+                        android:textColor="@color/rockBlue"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/maxNetworkFeeTxtTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/gasCodeV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="end"
+                        android:text="0.00031 ETH"
+                        android:textColor="@color/rockBlue"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/gasFeeTV"
+                        app:layout_constraintEnd_toStartOf="@+id/gasValueV"
+                        app:layout_constraintStart_toEndOf="@+id/gasFeeTV"
+                        app:layout_constraintTop_toTopOf="@+id/gasFeeTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/gasValueV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_2sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="end"
+                        android:text="$0.12"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/gasCodeV"
+                        app:layout_constraintTop_toTopOf="@+id/gasFeeTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/coinbaseFeeTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="start"
+                        android:text="Quotes include a 0.75% DX8X fee"
+                        android:textColor="@color/blueChalk"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/gasFeeTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/swipeTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_100sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/rounded_bg"
+                        android:gravity="center"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/swipe_to_swap"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_15ssp"
+                        app:layout_constraintBottom_toTopOf="@+id/termsOfServicesTV"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/coinbaseFeeTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/termsOfServicesTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="center"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:text="@string/terms_of_service"
+                        android:textColor="@color/skyBlue"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/swipeTV"
+                        app:layout_constraintVertical_bias="1" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

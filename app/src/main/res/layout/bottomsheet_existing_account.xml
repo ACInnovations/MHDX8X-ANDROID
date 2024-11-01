@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/CodGray"
+        android:padding="@dimen/_20sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/addTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/use_your_existing_account"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            app:fontFamily="@font/coresansg_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/closeIV"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/ic_close"
+            app:layout_constraintBottom_toBottomOf="@id/addTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/addTV" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/accountRV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintTop_toBottomOf="@id/addTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:itemCount="3"
+            tools:listitem="@layout/adapter_existing_accounts"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/msgTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_existing_account_yet"
+            android:textColor="@color/topaz"
+            android:textSize="@dimen/_15sdp"
+            app:fontFamily="@font/coresansg_medium"
+            android:visibility="gone"
+            android:layout_marginVertical="@dimen/_20sdp"
+            app:layout_constraintTop_toBottomOf="@id/addTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

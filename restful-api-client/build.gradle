@@ -1,0 +1,48 @@
+/*
+ *  @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+ * @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+ *
+ * All Rights Reserved.
+ * Proprietary and confidential :  All information contained herein is, and remains
+ * the property of ToXSL Technologies Pvt. Ltd. and its partners.
+ * Unauthorized copying of this file, via any medium is strictly prohibited.
+ */
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 33
+    buildToolsVersion "30.0.3"
+
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 33
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    namespace 'com.toxsl.restfulClient'
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.google.code.gson:gson:2.9.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+}
+repositories {
+    mavenCentral()
+}

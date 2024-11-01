@@ -1,0 +1,72 @@
+/*
+ * @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+ * @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+ *
+ * All Rights Reserved.
+ * Proprietary and confidential :  All information contained herein is, and remains
+ * the property of ToXSL Technologies Pvt. Ltd. and its partners.
+ * Unauthorized copying of this file, via any medium is strictly prohibited.
+ *
+ */
+
+ext {
+    walletCoreVersion = '3.1.18'
+}
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+Properties properties = new Properties()
+
+File localProps = new File(rootDir.absolutePath, "local.properties")
+if (localProps.exists()) {
+    properties.load(localProps.newDataInputStream())
+    println "Authenticating user: " + properties.getProperty("gpr.user")
+} else {
+    println "local.properties not found, please create it next to build.gradle and set gpr.user and gpr.key (Create a GitHub package read only + non expiration token at https://github.com/settings/tokens)\n" +
+            "Or set GITHUB_USER and GITHUB_TOKEN environment variables"
+}
+
+buildscript {
+    ext.kotlin_version = '1.8.0'
+    repositories {
+        maven {url 'https://maven.google.com'}
+        google()
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.3.1'
+        classpath 'com.google.gms:google-services:4.3.15'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.4'
+
+    }
+}
+
+allprojects {
+    repositories {
+        maven {
+            url = uri("https://maven.pkg.github.com/trustwallet/wallet-core")
+             credentials {
+                username ='dekconsulting'// properties.getProperty("gpr.user") as String?: System.getenv("GITHUB_USER")
+                password = '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'//properties.getProperty("gpr.key") as String?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+        google()
+        mavenCentral()
+        jcenter()
+         maven {
+            url 'https://maven.google.com'
+        }
+
+        maven { url 'https://jitpack.io' }
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

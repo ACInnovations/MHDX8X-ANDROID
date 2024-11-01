@@ -1,0 +1,163 @@
+/*
+ *  @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+ *   @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+ *  All Rights Reserved.
+ *  Proprietary and confidential :  All information contained herein is, and remains
+ *  the property of ToXSL Technologies Pvt. Ltd. and its partners.
+ *  Unauthorized copying of this file, via any medium is strictly prohibited.
+ */
+
+plugins{
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+}
+
+
+android {
+    compileSdkVersion 33
+    buildToolsVersion "30.0.3"
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/atomicfu.kotlin_module']
+        }
+    }
+    configurations{
+        all*.exclude module: 'bcprov-jdk15on'
+    }
+
+
+    signingConfigs {
+        release {
+             storePassword 'com.dx8_exchange'
+             keyAlias = 'com.dx8_exchange'
+             keyPassword 'com.dx8_exchange'
+             storeFile file('key.jks')
+        }
+    }
+
+
+    defaultConfig {
+        multiDexEnabled true
+        applicationId "com.dx8_exchange"
+        minSdkVersion 24
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+    }
+
+    //kotlin DSL
+    configurations.all {
+        resolutionStrategy {
+            force("org.antlr:antlr4-runtime:4.7.1")
+            force("org.antlr:antlr4-tool:4.7.1")
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def project = "com.dx8_exchange"
+            def separator = "_"
+            def buildType = variant.buildType.name
+            def versionName = variant.versionName
+            def versionCode = variant.versionCode
+            def date = new Date()
+            def formattedDate = date.format('yyyy_MM_dd')
+            if (variant.buildType.name == "release") {
+                def newApkName = project + separator + "v" + versionName + separator + versionCode + separator + buildType + separator + formattedDate + ".apk"
+                output.outputFileName = newApkName
+            }
+            if (variant.buildType.name == "debug") {
+                def newApkName = project + separator + "v" + versionName + separator + versionCode + separator + buildType + ".apk"
+                output.outputFileName = newApkName
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = 11
+        targetCompatibility = 11
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    lint {
+        abortOnError false
+        checkReleaseBuilds true
+    }
+    namespace 'com.dx8_exchange'
+
+
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'link.magic:magic-android:[9.0,10.0['
+  //  implementation 'link.magic:magic-ext-oauth:[4.0,5.0['
+  //  implementation 'link.magic:magic-ext-oidc:[2.0,3.0['
+    implementation "org.web3j:core:4.8.8-android"
+    implementation "org.web3j:geth:4.8.8-android"
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.gms:play-services-auth:20.4.1'
+    implementation('io.coil-kt:coil:2.1.0')
+    implementation "androidx.core:core-ktx:1.9.0"
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.google.firebase:firebase-messaging:23.1.1'
+    implementation project(':restful-api-client')
+    implementation project(':image-picker-lib')
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'cz.msebera.android:httpclient:4.5.8'
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+    implementation 'com.intuit.ssp:ssp-android:1.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0'
+    implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'org.danilopianini:khttp:1.3.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    implementation 'io.github.g00fy2.quickie:quickie-bundled:1.3.1'
+    implementation("io.github.g00fy2.quickie:quickie-bundled:1.3.1")
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'com.github.Deishelon:RoundedBottomSheet:1.0.1'
+    implementation 'androidx.viewpager:viewpager:1.0.0'
+    implementation 'com.budiyev.android:code-scanner:2.1.0'
+    implementation 'ru.egslava:MaskedEditText:1.0.5'
+    implementation 'com.hbb20:ccp:2.6.0'
+    implementation 'com.github.midorikocak:currency-picker-android:1.2.1'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.plaid.link:sdk-core:3.10.1'
+    implementation 'androidx.preference:preference-ktx:1.2.0'
+    implementation "com.trustwallet:wallet-core:$walletCoreVersion"
+}

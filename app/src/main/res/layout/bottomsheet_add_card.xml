@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_sheet"
+        android:padding="@dimen/_20sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/addTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/add_new_card"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            app:fontFamily="@font/coresansg_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/closeIV"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/ic_close"
+            app:layout_constraintBottom_toBottomOf="@id/addTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/addTV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/nameCardTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@color/CodGray"
+            android:elevation="@dimen/_2sdp"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:text="@string/name_on_card"
+            android:textColor="@color/skyBlue"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintBottom_toTopOf="@+id/inputNameET"
+            app:layout_constraintStart_toStartOf="@+id/inputNameET"
+            app:layout_constraintTop_toBottomOf="@+id/inputNameET"
+            app:layout_constraintTop_toTopOf="@+id/inputNameET" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/inputNameET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+            android:hint="@string/input_your_name"
+            android:imeOptions="actionNext"
+            android:paddingStart="@dimen/_14sdp"
+            android:singleLine="true"
+            android:textColor="@color/White"
+            android:textColorHint="@color/DoveGray"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addTV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cardNumberTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@color/CodGray"
+            android:elevation="@dimen/_2sdp"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:text="@string/card_number"
+            android:textColor="@color/skyBlue"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintBottom_toTopOf="@+id/inputCardNumET"
+            app:layout_constraintStart_toStartOf="@+id/inputCardNumET"
+            app:layout_constraintTop_toBottomOf="@+id/inputCardNumET"
+            app:layout_constraintTop_toTopOf="@+id/inputCardNumET" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/inputCardNumET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:digits="-1234567890"
+            android:hint="@string/input_card_number"
+            android:imeOptions="actionNext"
+            android:inputType="phone"
+            android:maxLength="19"
+            android:paddingStart="@dimen/_14sdp"
+            android:singleLine="true"
+            android:textColor="@color/White"
+            android:textColorHint="@color/DoveGray"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputNameET" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/expiryDateTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@color/CodGray"
+            android:elevation="@dimen/_2sdp"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:text="@string/expiry_date"
+            android:textColor="@color/skyBlue"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintBottom_toTopOf="@+id/expiryDateET"
+            app:layout_constraintStart_toStartOf="@+id/expiryDateET"
+            app:layout_constraintTop_toBottomOf="@+id/expiryDateET"
+            app:layout_constraintTop_toTopOf="@+id/expiryDateET" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/expiryDateET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:digits="/1234567890"
+            android:hint="@string/sample_date"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="5"
+            android:paddingStart="@dimen/_14sdp"
+            android:singleLine="true"
+            android:textColor="@color/White"
+            android:textColorHint="@color/DoveGray"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintEnd_toStartOf="@id/cvvET"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputCardNumET" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cvvTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@color/CodGray"
+            android:elevation="@dimen/_2sdp"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:text="@string/cvv"
+            android:textColor="@color/skyBlue"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintBottom_toTopOf="@+id/cvvET"
+            app:layout_constraintStart_toStartOf="@+id/cvvET"
+            app:layout_constraintTop_toBottomOf="@+id/cvvET"
+            app:layout_constraintTop_toTopOf="@+id/cvvET" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/cvvET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:hint="@string/cvv_hint"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLength="3"
+            android:paddingStart="@dimen/_14sdp"
+            android:singleLine="true"
+            android:textColor="@color/White"
+            android:textColorHint="@color/DoveGray"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/expiryDateET"
+            app:layout_constraintTop_toTopOf="@+id/expiryDateET" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/addCardTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/rounded_bg"
+            android:fontFamily="@font/coresansg_medium"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_12sdp"
+            android:text="@string/add_card"
+            android:textColor="@color/White"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/expiryDateET" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

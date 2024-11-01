@@ -1,0 +1,428 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.dx8_exchange.utils.ViewClickHandler" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/deepBlack">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolbarCL"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/backArrowIV"
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="@dimen/_26sdp"
+                android:background="@mipmap/ic_back"
+                android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/saveToWatchListTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@mipmap/ic_star_empty"
+                android:drawablePadding="@dimen/_15sdp"
+                android:fontFamily="@font/coresansg_regular"
+                android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                android:text="@string/save_to_watchlist"
+                android:textColor="@color/White"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/backArrowIV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/backArrowIV" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/mainSV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@id/buyCL"
+            app:layout_constraintTop_toBottomOf="@id/toolbarCL">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/detailsCL"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_20sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/btcTV"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="start"
+                        android:textColor="@color/rockBlue"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/coinTV"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/coresansg_regular"
+                        android:gravity="start"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_15ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btcTV" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/coinIV"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/btcTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/coinValueTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="start"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_18ssp"
+                        app:layout_constraintEnd_toStartOf="@+id/coinPercentTV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/coinTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/coinPercentTV"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="start"
+                        android:textColor="@color/PersianGreen"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/coinValueTV"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/coinValueTV"
+                        app:layout_constraintTop_toTopOf="@+id/coinValueTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/coinDataTV"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="start"
+                        android:textColor="@color/rockBlue"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/coinValueTV" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/menuCL"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@drawable/clay_rounded_bg"
+                        android:paddingVertical="@dimen/_20sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/coinDataTV">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/sendIV"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                            android:src="@mipmap/ic_send1"
+                            app:layout_constraintEnd_toStartOf="@+id/recieveIV"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/sendTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                            android:text="@string/send"
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toEndOf="@+id/sendIV"
+                            app:layout_constraintStart_toStartOf="@+id/sendIV"
+                            app:layout_constraintTop_toBottomOf="@id/sendIV" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/recieveIV"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                            android:src="@mipmap/ffffffffff"
+                            app:layout_constraintEnd_toStartOf="@+id/buyIV"
+                            app:layout_constraintStart_toEndOf="@id/sendIV"
+                            app:layout_constraintTop_toTopOf="@id/sendIV" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/recieveTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                            android:text="@string/buy"
+                            android:textColor="@color/white"
+                            app:layout_constraintBottom_toBottomOf="@+id/sendTV"
+                            app:layout_constraintEnd_toEndOf="@+id/recieveIV"
+                            app:layout_constraintStart_toStartOf="@+id/recieveIV"
+                            app:layout_constraintTop_toTopOf="@+id/sendTV" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/buyIV"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                            android:src="@mipmap/ic_swap"
+                            app:layout_constraintEnd_toStartOf="@+id/withdrawIV"
+                            app:layout_constraintStart_toEndOf="@id/recieveIV"
+                            app:layout_constraintTop_toTopOf="@id/sendIV" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/swapTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                            android:text="@string/swap"
+                            android:textColor="@color/white"
+                            app:layout_constraintBottom_toBottomOf="@+id/sendTV"
+                            app:layout_constraintEnd_toEndOf="@+id/buyIV"
+                            app:layout_constraintStart_toStartOf="@+id/buyIV"
+                            app:layout_constraintTop_toTopOf="@+id/sendTV" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/withdrawIV"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                            android:src="@mipmap/cash_out"
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/buyIV"
+                            app:layout_constraintTop_toTopOf="@id/sendIV" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/withdrawTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                            android:text="@string/withdraw"
+                            android:textColor="@color/white"
+                            app:layout_constraintBottom_toBottomOf="@+id/sendTV"
+                            app:layout_constraintEnd_toEndOf="@+id/withdrawIV"
+                            app:layout_constraintStart_toStartOf="@+id/withdrawIV"
+                            app:layout_constraintTop_toTopOf="@id/sendTV" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/graphIV"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_230sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_graph1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/menuCL" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/coinDropDownTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="start"
+                        android:text="BTC/USD"
+                        android:textColor="@color/rockBlue"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintStart_toStartOf="@+id/graphIV"
+                        app:layout_constraintTop_toTopOf="@+id/graphIV" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/dropDownTwoIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/down_arrow"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:padding="@dimen/_10sdp"
+                        android:tint="@color/fogColor"
+                        app:layout_constraintBottom_toBottomOf="@+id/coinDropDownTV"
+                        app:layout_constraintStart_toEndOf="@+id/coinDropDownTV"
+                        app:layout_constraintTop_toTopOf="@+id/coinDropDownTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/mViewTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:fontFamily="@font/coresansg_medium"
+                        android:gravity="start"
+                        android:text="3M"
+                        android:textColor="@color/rockBlue"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintEnd_toStartOf="@+id/mdropDownTV"
+                        app:layout_constraintTop_toTopOf="@+id/coinDropDownTV" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/mdropDownTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:background="@drawable/down_arrow"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        app:layout_constraintBottom_toBottomOf="@+id/coinDropDownTV"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/coinDropDownTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/recentTransactionTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:text="@string/recent_transactions"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/graphIV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/seeAllTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/coresansg_regular"
+                        android:text="@string/see_all"
+                        android:textColor="@color/skyBlue"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/recentTransactionTV"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/recentTransactionTV" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/transactionRV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/recentTransactionTV"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/adapter_transaction" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cryptoNewsTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="@string/news"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_15ssp"
+                        app:fontFamily="@font/coresansg_rounded_bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/transactionRV" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/newsDataRV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/adapter_crypto_news"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintTop_toBottomOf="@id/cryptoNewsTV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                    
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/buyCL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/CodGray"
+            android:paddingHorizontal="@dimen/_20sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/minBuyPriceTxtTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:fontFamily="@font/coresansg_medium"
+                android:gravity="start"
+                android:text="@string/min_buy"
+                android:textColor="@color/White"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/minBuyPriceTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:fontFamily="@font/coresansg_medium"
+                android:gravity="start"
+                android:text="$1.0"
+                android:textColor="@color/White"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/minBuyPriceTxtTV" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/sellTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_bg"
+                android:fontFamily="@font/coresansg_medium"
+                android:gravity="start"
+                android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                android:paddingHorizontal="@dimen/_25sdp"
+                android:paddingVertical="@dimen/_12sdp"
+                android:text="@string/sell"
+                android:textColor="@color/White"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

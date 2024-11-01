@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomSheetCL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_sheet"
+        android:padding="@dimen/_20sdp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/addTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_payment"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            app:fontFamily="@font/coresansg_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/closeIV"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/ic_close"
+            app:layout_constraintBottom_toBottomOf="@id/addTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/addTV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cardTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/coresansg_medium"
+            android:text="@string/transak"
+            android:textColor="@color/White"
+            android:textSize="@dimen/_15ssp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:drawablePadding="@dimen/_12sdp"
+            android:drawableStart="@mipmap/ic_card"
+            android:drawableEnd="@mipmap/ic_wht_arwww"
+            android:paddingVertical="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addTV"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bankAccountTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/coresansg_medium"
+            android:text="@string/bank_account_ach"
+            android:textColor="@color/White"
+            android:textSize="@dimen/_15ssp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:drawablePadding="@dimen/_12sdp"
+            android:drawableStart="@mipmap/ic_big"
+            android:drawableEnd="@mipmap/ic_wht_arwww"
+            android:paddingVertical="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardTV"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

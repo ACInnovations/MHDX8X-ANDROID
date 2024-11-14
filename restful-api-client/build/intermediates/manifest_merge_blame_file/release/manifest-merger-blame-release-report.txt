@@ -1,0 +1,20 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3  ~  @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+4  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+5  ~
+6  ~ All Rights Reserved.
+7  ~ Proprietary and confidential :  All information contained herein is, and remains
+8  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+9  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+10-->
+11<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+12    package="com.toxsl.restfulClient" >
+13
+14    <uses-sdk
+15        android:minSdkVersion="17"
+15-->/Users/donovanisho/Documents/dekconsulting-dx8x-9cc5120fe83b/restful-api-client/src/main/AndroidManifest.xml
+16        android:targetSdkVersion="33" />
+16-->/Users/donovanisho/Documents/dekconsulting-dx8x-9cc5120fe83b/restful-api-client/src/main/AndroidManifest.xml
+17
+18</manifest>

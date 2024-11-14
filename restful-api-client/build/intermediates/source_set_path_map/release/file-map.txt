@@ -1,0 +1,8 @@
+com.toxsl.restfulClient.restful-api-client-pngs-0 /Users/donovanisho/Documents/dekconsulting-dx8x-9cc5120fe83b/restful-api-client/build/generated/res/pngs/release
+com.toxsl.restfulClient.restful-api-client-resValues-1 /Users/donovanisho/Documents/dekconsulting-dx8x-9cc5120fe83b/restful-api-client/build/generated/res/resValues/release
+com.toxsl.restfulClient.restful-api-client-rs-2 /Users/donovanisho/Documents/dekconsulting-dx8x-9cc5120fe83b/restful-api-client/build/generated/res/rs/release
+com.toxsl.restfulClient.restful-api-client-mergeReleaseResources-3 /Users/donovanisho/Documents/dekconsulting-dx8x-9cc5120fe83b/restful-api-client/build/intermediates/incremental/release/mergeReleaseResources/merged.dir
+com.toxsl.restfulClient.restful-api-client-mergeReleaseResources-4 /Users/donovanisho/Documents/dekconsulting-dx8x-9cc5120fe83b/restful-api-client/build/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+com.toxsl.restfulClient.restful-api-client-merged_res-5 /Users/donovanisho/Documents/dekconsulting-dx8x-9cc5120fe83b/restful-api-client/build/intermediates/merged_res/release
+com.toxsl.restfulClient.restful-api-client-main-6 /Users/donovanisho/Documents/dekconsulting-dx8x-9cc5120fe83b/restful-api-client/src/main/res
+com.toxsl.restfulClient.restful-api-client-release-7 /Users/donovanisho/Documents/dekconsulting-dx8x-9cc5120fe83b/restful-api-client/src/release/res

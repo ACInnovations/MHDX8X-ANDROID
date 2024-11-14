@@ -13,7 +13,7 @@ package com.toxsl.restfulClient.api
 import android.content.Context
 import com.toxsl.restfulClient.api.extension.handleException
 import com.toxsl.restfulClient.api.extension.log
-import com.toxsl.restfulClient.api.utils.SingletonHolder
+import com.toxsl.restfulClient.utils.SingletonHolder
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -114,18 +114,19 @@ class RestFullClient private constructor(context: Context) {
             val jsonObject = JSONObject(data)
             if (jsonObject.has("datecheck")) {
                 val d = dateFormat.parse(jsonObject.getString("datecheck"))
-                cal.time = d
-                val currentcal = Calendar.getInstance()
-                if (currentcal.after(cal)) {
-                    mSyncEventListener.onSyncFailure(
+                if (d != null) {
+                    cal.time = d
+                    val currentcal = Calendar.getInstance()
+                    if (currentcal.after(cal)) {
+                        mSyncEventListener.onSyncFailure(
                             0,
                             AppExpiredError(jsonObject.getString("datecheck")),
                             null,
                             null,
                             null
-                    )
-
-                    return true
+                        )
+                        return true
+                    }
                 }
             }
         } catch (e: Exception) {

@@ -8,12 +8,10 @@
  */
 
 apply plugin: 'com.android.library'
-
+apply plugin: 'kotlin-android' // Ensures Kotlin options are available
 
 android {
-
     compileSdkVersion 33
-
 
     defaultConfig {
         minSdkVersion 17
@@ -25,38 +23,36 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     lint {
         abortOnError false
     }
     namespace 'toxsl.imagebottompicker'
-
-}
-
-
-
-configurations {
-    javadocDeps
 }
 
 repositories {
     mavenCentral()
     google()
+    maven { url 'https://jitpack.io' }
 }
-
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    //noinspection GradleCompatible
     implementation 'androidx.appcompat:appcompat:1.5.1'
-    //noinspection GradleCompatible
     api 'com.google.android.material:material:1.7.0'
     implementation 'androidx.annotation:annotation:1.5.0'
-    javadocDeps 'androidx.annotation:annotation:1.5.0'
     implementation 'com.github.bumptech.glide:glide:4.13.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
     implementation 'gun0912.ted:tedonactivityresult:1.0.6'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
-
 }
-

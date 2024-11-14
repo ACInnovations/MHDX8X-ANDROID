@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 7.3.1" type="incidents">
+
+    <incident
+        id="SimpleDateFormat"
+        severity="warning"
+        message="To get local formatting use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()`, or use `new SimpleDateFormat(String template, Locale locale)` with for example `Locale.US` for ASCII dates.">
+        <location
+            file="${:restful-api-client*debug*sourceProvider*0*javaDir*0}/com/toxsl/restfulClient/api/RestFullClient.kt"
+            line="112"
+            column="26"
+            startOffset="4279"
+            endLine="112"
+            endColumn="56"
+            endOffset="4309"/>
+    </incident>
+
+    <incident
+        id="OldTargetApi"
+        severity="warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details.">
+        <fix-replace
+            description="Update targetSdkVersion to 34"
+            oldString="33"
+            replacement="34"/>
+        <location
+            file="${:restful-api-client*projectDir}/build.gradle"
+            line="20"
+            column="9"
+            startOffset="570"
+            endLine="20"
+            endColumn="28"
+            endOffset="589"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.code.gson:gson than 2.9.1 is available: 2.10.1">
+        <fix-replace
+            description="Change to 2.10.1"
+            family="Update versions"
+            oldString="2.9.1"
+            replacement="2.10.1"/>
+        <location
+            file="${:restful-api-client*projectDir}/build.gradle"
+            line="52"
+            column="20"
+            startOffset="1332"
+            endLine="52"
+            endColumn="53"
+            endOffset="1365"/>
+    </incident>
+
+</incidents>

@@ -1,0 +1,19 @@
+<lint-module
+    format="1"
+    dir="/Users/donovanisho/Documents/dekconsulting-dx8x-9cc5120fe83b/restful-api-client"
+    name=":restful-api-client"
+    type="LIBRARY"
+    maven="dekconsulting-dx8x-9cc5120fe83b:restful-api-client:"
+    gradle="7.3.1"
+    buildFolder="build"
+    bootClassPath="/Users/donovanisho/Library/Android/sdk/platforms/android-33/android.jar:/Users/donovanisho/Library/Android/sdk/build-tools/30.0.3/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-33"
+    neverShrinking="true">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="debug"/>
+</lint-module>
